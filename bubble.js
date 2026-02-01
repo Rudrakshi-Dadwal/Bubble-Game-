@@ -28,11 +28,12 @@ else{
 
 runtimer();
 
+var hitrn=0;
 
 function getnewhit(){
 
-   var rn = Math.floor(Math.random()*10);
-    document.getElementById("hitval").innerText=rn;
+   hitrn = Math.floor(Math.random()*10);
+    document.getElementById("hitval").innerText=hitrn;
 
 }
 
@@ -45,12 +46,25 @@ score+=10;
 document.getElementById("scoreval").innerText=score;
 }
 
-
-//jo element pe click karenge vo event raise hoga . event lisytener na milne oar evennt parent ke oarent ke parent par listener fhundega
 document.getElementById("pbtm").addEventListener("click",function(dets){
    
-console.log(Number(dets.target.textContent)); // vo bubble jispe click hua
+    var clicknum=Number(dets.target.textContent); // vo bubble jispe click hua
 //text content pe sirf number aagya naaki the whole div and vo num ber string hoga toh convert it 
+      if(clicknum===hitrn){
+
+
+    getscore();
+    makebubble();
+    getnewhit();
+
+                          }
 
 
 });
+
+
+//jo element pe click karenge vo event raise hoga . event lisytener na milne oar evennt parent ke oarent ke parent par listener fhundega
+
+
+    
+    //remove that bubble
